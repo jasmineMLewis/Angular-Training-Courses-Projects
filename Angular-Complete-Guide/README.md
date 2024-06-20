@@ -1,13 +1,13 @@
-# Angular Fundamentals
-A repository for the course Angular: Fundamentals by Joe and Jim Cooper on PluralSight.
+# Angular The Complete Guide
+A repository for the course Angular The Complete-Guide (2024 Edition) by Maximilian Schwarzmüller on UDemy.
 
 ## Project GitHub
 https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/tree/master/Angular%20Fundamental
 
 ## Date Last Updated
-2019
+June 6, 2024
 
 ## Technologies
 | Technology | Version  |
 |--|--|
-| Angular | 7.1.2 |
+| Angular | 18 |

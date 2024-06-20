@@ -17,43 +17,40 @@ A respository of all Angular training courses' projects from PluralSight and UDe
 A repository for the course Angular: Fundamentals by Joe and Jim Cooper on PluralSight
 
 ## Project GitHub
-?
+https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/tree/master/Angular%20Fundamental
 
 ## Date Last Updated
-?
+2019
 
 ## Technologies
 | Technology | Version  |
 |--|--|
-| Angular | 8.2.2 |
-
+| Angular | 7.1.2 |
 
 
 # Angular CLI
 A repository for the course Angular: Fundamentals by Joe and Jim Cooper on PluralSightA repository for the course Angular:CLI by John Papa on PluralSight.
 
 ## Project GitHub
-?
+https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/tree/master/Angular-CLI
 
 ## Date Last Updated
-?
+2019
 
 ## Technologies
 | Technology | Version  |
 |--|--|
-| Angular |  |
-
-
+| Angular | 8.2.0 |
 
 
 # Angular Getting Started
 A repository for the course Angular: Getting Started by Deborah Kurata on PluralSight
 
 ## Project GitHub
-?
+https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/tree/master/Angular-Getting-Started
 
 ## Date Last Updated
-?
+2019
 
 ## Technologies
 | Technology | Version  |
@@ -68,22 +65,7 @@ A repository for the course Angular The Complete-Guide (2024 Edition) by Maximil
 ?
 
 ## Date Last Updated
-?
-
-## Technologies
-| Technology | Version  |
-|--|--|
-| Angular |  |
-
-
-# Angular Getting Started
-A repository for the course Angular: Getting Started by Deborah Kurata on PluralSight.
-
-## Project GitHub
-?
-
-## Date Last Updated
-?
+June 6, 2024
 
 ## Technologies
 | Technology | Version  |
