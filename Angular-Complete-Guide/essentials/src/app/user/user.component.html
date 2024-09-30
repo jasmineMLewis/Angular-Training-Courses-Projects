@@ -1,0 +1,10 @@
+<div>
+    <button (click)="onSelectUser()"> <!--Event Listner-->
+        <img [src]="imagePath" [alt]="name" /> <!--Property Binding-->
+        <span>{{name}}</span> <!--String Interpolation-->
+
+        <!-- <img [src]="imagePath()" [alt]="selectedUser().name" /> -->
+        <!-- Using signals (trackable data container) as a function-->
+        <!-- <span>{{selectedUser().name}}</span> -->
+    </button>
+</div>
