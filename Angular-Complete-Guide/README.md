@@ -13,13 +13,13 @@ October 27, 2024
 | Angular | 18 |
 
 
-# Typescript Advantages
-1. Typescript enforces strong and static typing. You have to be clear about which value goes where.
-
-
 # Study Notes Table of Contents
-1. [Module One Getting Started](#module-one-getting-started)
-2. [Module 2](#module-two-angular-essentials)
+1. [Typescript Advantages](#typescript-advantages)
+2. [Module One Getting Started](#module-one-getting-started)
+3. [Module Two Angular Essentials](#module-two-angular-essentials)
+
+# Typescript Advantages(#typescript-advantages)
+1. Typescript enforces strong and static typing. You have to be clear about which value goes where.
 
 
 # Module One Getting Started(#module-one-getting-started)
