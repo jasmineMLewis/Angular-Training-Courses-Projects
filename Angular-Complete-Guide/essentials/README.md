@@ -18,13 +18,13 @@ October 27, 2024
 2. [Module One Getting Started](#module-one-getting-started)
 3. [Module Two Angular Essentials](#module-two-angular-essentials)
 
-# Typescript Advantages(#typescript-advantages)
+# Typescript Advantages
 1. Typescript enforces strong and static typing. You have to be clear about which value goes where.
 
-# Module One Getting Started(#module-one-getting-started)
+# Module One Getting Started
 ### Publication Link
 TBD
 
-# Module Two Angular Essentials(#module-two-angular-essentials)
+# Module Two Angular Essentials
 ### Publication Link
 TBD
