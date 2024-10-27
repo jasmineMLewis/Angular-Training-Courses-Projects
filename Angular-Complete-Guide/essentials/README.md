@@ -19,13 +19,13 @@ October 27, 2024
 
 # Study Notes Table of Contents
 1. [Module One Getting Started](#module-one-getting-started)
-2. [Module 2](#module-two-angular-essentials)
+2. [Module Two Angular Essentials](#module-two-angular-essentials)
 
 
 # Module One Getting Started(#module-one-getting-started)
 ### Publication Link
 TBD
 
-# Module Two Angular Essentials More(#module-two-angular-essentials)
+# Module Two Angular Essentials(#module-two-angular-essentials)
 ### Publication Link
 TBD
