@@ -12,20 +12,15 @@ October 27, 2024
 |--|--|
 | Angular | 18 |
 
-
 # Study Notes Table of Contents
 1. [Typescript Advantages](#typescript-advantages)
-2. [Module One Getting Started](#module-one-getting-started)
-3. [Module Two Angular Essentials](#module-two-angular-essentials)
+2. [Modules](#modules)
 
-# Typescript Advantages(#typescript-advantages)
+# Typescript Advantages
 1. Typescript enforces strong and static typing. You have to be clear about which value goes where.
 
+# Modules
+### Publication Links
+1. [**Module 1: Getting Started**](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Development/Angular-Complete-Guide/study-notes/module-1-6/module-1-getting-started.md)
 
-# Module One Getting Started(#module-one-getting-started)
-### Publication Link
-TBD
-
-# Module Two Angular Essentials More(#module-two-angular-essentials)
-### Publication Link
-TBD
+2. [**Module 2: Angular Essentials - Components, Templates, Services & More**](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Development/Angular-Complete-Guide/study-notes/module-1-6/module-2-angular-essentials.md)

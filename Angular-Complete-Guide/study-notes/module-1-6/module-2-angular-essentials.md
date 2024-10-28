@@ -11,19 +11,27 @@
 10. [IfElse](#if-else)
 11. [Structural Directives](#structural-directives)
  
-
-# Module Two Angular Essentials(#module-two-angular-essentials)
+# Module Two Angular Essentials
 I have documented my study notes for Module 2: Angular Essentials – Components, Templates, Services, & More. The course I am taking is UDemy's Sofware course by Maximilian Schwarzmüller's Angular: The Complete Guide.
 
+Below are a list of topics within the module:
+1. Typescript Advantages
+2. Input Decorator
+3. Output Decorator
+4. String Interpolation
+5. Property Binding
+6. Type Alias
+7. Interface
+8. For Loop
+9. If/Else
+10. Structural Directives
 
-# Typescript Advantages(#typescript-advantages)
+# Typescript Advantages
 Typescript enforces strong and static typing. You have to be clear about which value goes where.
- 
 
-# Input Decorator(#input-decorator)
+# Input Decorator
 When defining Input decorator, use "required: true" to signal to Angular that an input is required.
 By doing this, Angular will notify you there is an error, if the item is not set.
-
 
 ```
 @Input({required: true}) avatar!: string;
@@ -41,9 +49,8 @@ If you are unsure if the input will be a specific type can use the pipe "|" symb
 ``` 
 @Input() name: string | undefined;
 ```
- 
 
-# Signal(#signal)
+# Signal
 Signal indicates when a change occur, then sets it. Signals are used in state management and are trackable data containers. A signal is an object that stores a value (any type of value, including nested objects). 
 
 
@@ -65,7 +72,7 @@ Change property binding and String Interpolation to a function. We used a comput
 <span>{{ name() }}</span>
 ```
 
-# Output Decorator(#output-decorator)
+# Output Decorator
 ## EventEmitter
 To create a custom event, use Output decorator. When defining Output decorator, include the name of output and set to EventEmitter().
 
@@ -109,15 +116,14 @@ onSelectUser(id: string)
 this.select.emit(2);
 ```
 
-# String Interpolation(#string-interpolation)
+# String Interpolation
 String Interpolation is when you use double brackets on both left and right side of variable to display a string variable in HTML.
 
 ```
 <h2>{{ name }}</h2>
 ```
 
-
-# Property Binding(#property-binding)
+# Property Binding
 Property Binding is when you use square brackets to display data in HTML for a DOM (document object model) object.
 
 
@@ -125,7 +131,7 @@ Property Binding is when you use square brackets to display data in HTML for a D
 <img [src]="imagePath" [alt]="name" />
 ```
 
-# Type Alias(#type-alias)
+# Type Alias
 Type Aliases allow you to define a type with custom name, also known as an Alias.
 
 ```
@@ -136,8 +142,7 @@ type User = {
 } 
 ```
  
-
-# Interface(#interface)
+# Interface
 Interface is another of defining an object. Typically in Angular projects, interface is used more than type.
  
 ```
@@ -148,8 +153,7 @@ interface User {
 } 
 ```
  
-
-# For Loop(#for-loop)
+# For Loop
 To dynamically list items, such as the DUMMY_USERS, use "@for()" and include "track" to specify what you are cycling through.
 Initially we used the followed code to hard code users:
 
@@ -173,7 +177,7 @@ Now we use the following code to dynamically return users using their id. The fi
     }
 ```
 
-# IfElse (#if-else)
+# IfElse
 The If statement elevates a condition and executes the code if the condition is true. The else code block displays when the is statement is false. 
 
 ```
@@ -184,7 +188,7 @@ The If statement elevates a condition and executes the code if the condition is 
     }
 ```
 
-# Structural Directives(#structural-directives)
+# Structural Directives
 Structural directives include "*ngFor" and "*ngIf". These are use in older versions of Angular.
 
 ```
