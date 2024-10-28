@@ -24,8 +24,8 @@ October 27, 2024
 
 # Module One Getting Started
 ### Publication Link
-TBD
+[**Module 1**](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Development/Angular-Complete-Guide/study-notes/module-1-6/module-1-getting-started.md)
 
-# Module Two Angular Essentials More
+# Module Two Angular Essentials
 ### Publication Link
-TBD
+[**Module 2**](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Development/Angular-Complete-Guide/study-notes/module-1-6/module-2-angular-essentials.md) 
