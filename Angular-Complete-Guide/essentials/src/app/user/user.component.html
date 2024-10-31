@@ -1,5 +1,5 @@
 <div>
-    <button (click)="onSelectUser()"> <!--Event Listner-->
+    <button [class.active]="selected" (click)="onSelectUser()"> <!--Event Listner-->
         <img [src]="imagePath" [alt]="user.name" />  <!-- Property Binding -->
         <span>{{user.name}}</span>  <!-- String Interpolation -->
 
