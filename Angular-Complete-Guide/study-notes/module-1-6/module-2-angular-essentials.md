@@ -80,23 +80,25 @@ To create a custom event, use Output decorator. When defining Output decorator, 
 @Output() select = new EventEmitter();
 ```
 
+With Typescript you can denote the type of data with EventEmitter, by specifying the type. 
+
+```
+@Output() select = new EventEmitter<string>(); 
+``` 
+
 To emit the custom event, use the name of the output and emit.
 
 ```
 this.select.emit(this.id);
 ```
 
-On the HTML, use  the "$event" variable to access the emit variable. The "$event" variable is available for both custom events and built-int events, such as (like "click".)
-
-AppCompoent
+To inform Angular that you want to pass information from the child component to the parent, you must use a special variable called "$event". Use the "$event" to access the emit variable. The "$event" special variable is available for both custom events and built-int events, such as (like "click".) 
 
 ```
   onSelectUser(id: string) {
     console.log('Selected user with name ' + id);
   }
 ``` 
-
-HTML 
 
 ```
 <app-user
@@ -152,6 +154,18 @@ interface User {
   name: string;
 } 
 ```
+
+To use it when a class, you must import it. You can import class definitions. 
+
+``` 
+import { User } from './user.model'; 
+``` 
+
+You are not required to add "type" to the class definition, but you want to know you are importing a type. 
+ 
+``` 
+import { type User } from './user.model'; 
+``` 
  
 # For Loop
 To dynamically list items, such as the DUMMY_USERS, use "@for()" and include "track" to specify what you are cycling through.
@@ -198,3 +212,36 @@ Structural directives include "*ngFor" and "*ngIf". These are use in older versi
         (select)="onSelectUser($event)" /> 
 </li> 
 ```
+
+# Component Selector 
+Component Selector is a CSS selector that determines how the component is used. The component selector can be used in HTML of other components. 
+
+``` 
+@Component({ 
+  selector: 'app-new-task', 
+  ... 
+}) 
+```
+
+To use the component in a HTML file, you call the component by its selector. 
+
+``` 
+@if(isAddingTask) { 
+    <app-new-task></app-new-task> 
+} 
+``` 
+
+To use the component in another component, it must be imported. 
+
+``` 
+@Component({ 
+  selector: 'app-tasks', 
+  standalone: true, 
+  imports: [ 
+    TaskComponent, 
+    NewTaskComponent 
+  ], 
+  templateUrl: './tasks.component.html', 
+  styleUrl: './tasks.component.css', 
+}) 
+``` 
