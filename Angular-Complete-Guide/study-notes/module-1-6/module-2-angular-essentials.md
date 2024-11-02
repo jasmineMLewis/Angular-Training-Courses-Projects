@@ -16,18 +16,56 @@ I have documented my study notes for Module 2: Angular Essentials – Components
 
 Below are a list of topics within the module:
 1. Typescript Advantages
-2. Input Decorator
-3. Output Decorator
-4. String Interpolation
-5. Property Binding
-6. Type Alias
-7. Interface
-8. For Loop
-9. If/Else
-10. Structural Directives
+2. Component
+3. Input Decorator
+4. Output Decorator
+5. String Interpolation
+6. Property Binding
+7. Type Alias
+8. Interface
+9. For Loop
+10. If/Else
+11. Structural Directives
 
 # Typescript Advantages
 Typescript enforces strong and static typing. You have to be clear about which value goes where.
+
+# Component 
+Components are directives! Directives with templates. 
+
+## Component Selector
+Component Selector is a CSS selector that determines how the component is used. The component selector can be used in HTML of other components. 
+
+``` 
+@Component({ 
+  selector: 'app-new-task', 
+  ... 
+}) 
+```
+
+To use the component in a HTML file, you call the component by its selector. 
+
+``` 
+@if(isAddingTask) { 
+    <app-new-task></app-new-task> 
+} 
+``` 
+
+To use the component in another component, it must be imported. 
+
+``` 
+@Component({ 
+  selector: 'app-tasks', 
+  standalone: true, 
+  imports: [ 
+    TaskComponent, 
+    NewTaskComponent 
+  ], 
+  templateUrl: './tasks.component.html', 
+  styleUrl: './tasks.component.css', 
+}) 
+```
+
 
 # Input Decorator
 When defining Input decorator, use "required: true" to signal to Angular that an input is required.
@@ -213,35 +251,34 @@ Structural directives include "*ngFor" and "*ngIf". These are use in older versi
 </li> 
 ```
 
-# Component Selector 
-Component Selector is a CSS selector that determines how the component is used. The component selector can be used in HTML of other components. 
+
+# Two Way Binding 
+Two-Way Binding, combination of property and event binding, is a way to bind templates to data for form input and form submissions. 
+
+## Directives 
+Directives, unlike components, don’t have a template! 
+
+## Directive | NgModel 
+
+To update the input values and listen to changes use ngModel directive. It is an "element enhancement" that helps with extracting (or changing) use input values. NgModel is used with input or text area, or other form-related elements. 
+
+Two-Way Binding Syntax 
 
 ``` 
-@Component({ 
+ [(ngModel)]="property" 
+``` 
+
+To use the directive, you must register it, by including "FormsModule" in the imports for your component. 
+
+``` 
+@Component({
   selector: 'app-new-task', 
-  ... 
+  standalone: true,
+  imports: [
+    FormsModule
+  ], 
+  templateUrl: './new-task.component.html', 
+  styleUrl: './new-task.component.css' 
 }) 
 ```
-
-To use the component in a HTML file, you call the component by its selector. 
-
-``` 
-@if(isAddingTask) { 
-    <app-new-task></app-new-task> 
-} 
-``` 
-
-To use the component in another component, it must be imported. 
-
-``` 
-@Component({ 
-  selector: 'app-tasks', 
-  standalone: true, 
-  imports: [ 
-    TaskComponent, 
-    NewTaskComponent 
-  ], 
-  templateUrl: './tasks.component.html', 
-  styleUrl: './tasks.component.css', 
-}) 
-``` 
+ 
