@@ -1,15 +1,21 @@
 # Table of Contents 
 1. [Typescript Advantages](#typescript-advantages)
-2. [Input Decorator](#input-decorator)
-3. [Signal](#signal)
-4. [Output Decorator](#output-decorator)
-5. [String Interpolation](#string-interpolation)
-6. [Property Binding](#property-binding)
-7. [Type Alias](#type-alias)
-8. [Interface](#interface)
-9. [For Loop](#for-loop)
-10. [IfElse](#if-else)
-11. [Structural Directives](#structural-directives)
+2. [Component](#component)
+3. [Input Decorator](#input-decorator)
+4. [Signal](#signal)
+5. [Output Decorator](#output-decorator)
+6. [String Interpolation](#string-interpolation)
+7. [Property Binding](#property-binding)
+8. [Type Alias](#type-alias)
+9. [Interface](#interface)
+10. [For Loop](#for-loop)
+11. [IfElse](#if-else)
+12. [Structural Directives](#structural-directives)
+13. [Two Way Binding](#two-way-binding)
+14. [Ng Content](#ng-content)
+15. [Pipes](#pipes)
+16. [Service](#service)
+17. [Dependency Injection](#dependency-injection) 
  
 # Module Two Angular Essentials
 I have documented my study notes for Module 2: Angular Essentials – Components, Templates, Services, & More. The course I am taking is UDemy's Sofware course by Maximilian Schwarzmüller's Angular: The Complete Guide.
@@ -18,14 +24,20 @@ Below are a list of topics within the module:
 1. Typescript Advantages
 2. Component
 3. Input Decorator
-4. Output Decorator
-5. String Interpolation
-6. Property Binding
-7. Type Alias
-8. Interface
-9. For Loop
-10. If/Else
-11. Structural Directives
+4. Signal
+5. Output Decorator
+6. String Interpolation
+7. Property Binding
+8. Type Alias
+9. Interface
+10. For Loop
+11. If/Else
+12. Structural Directives
+13. Two Way Binding
+14. Ng Content
+15. Pipes
+16. Service
+17. Dependency Injection
 
 # Typescript Advantages
 Typescript enforces strong and static typing. You have to be clear about which value goes where.
@@ -281,4 +293,69 @@ To use the directive, you must register it, by including "FormsModule" in the im
   styleUrl: './new-task.component.css' 
 }) 
 ```
+
+# Ng Content
+Ng Content acts an placeholder for the wrapped markup.
+
+```
+<div>
+  <ng-content></ng-content>
+</div>
+```
  
+# Pipes 
+Pipes are output transformers. Angular has some built in pipes and you can create custom pipes. 
+
+Using a date pipe:
+
+```
+<time>{{ task.dueDate | date: 'fullDate' }} </time>
+```
+
+Import the date pipe:
+
+```
+import { DatePipe  } from '@angular/common';
+
+@Component({
+  imports: [
+    DatePipe
+  ]
+})
+```
+
+# Service
+You want to keep your code lean.
+To generate a service and exclude tests, use the following command:
+
+```
+ng generate service <service-name>  --skip-tests
+```
+
+```
+ng g s <service-name> --skip-tests
+```
+
+## Dependency Injection
+A powerful tool used in conjunction with services is dependency injection. You don't create an instance on your own, instead you tell Angular you need an instance, and it will create it. Angular creates the instance once and you can use it in different components. 
+
+### Constructor
+To inform Angular you need this type of instance,  use the constructor method. Angular will create the instance once, and you can use it in different components. When the class is used, It is automatically instantiated.
+
+```
+constructor() {}
+```
+
+To add a service and instantiate it. 
+
+``` 
+constructor(private tasksService: TasksService) {}
+```
+
+To register a class as injectable:
+
+```
+@Injectable({
+  providedIn: 'root',
+})
+```

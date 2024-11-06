@@ -1,4 +1,4 @@
-<div>
+<app-card>
     <button [class.active]="selected" (click)="onSelectUser()"> <!--Event Listner-->
         <img [src]="imagePath" [alt]="user.name" />  <!-- Property Binding -->
         <span>{{user.name}}</span>  <!-- String Interpolation -->
@@ -11,4 +11,4 @@
         <!-- Using signals (trackable data container) as a function-->
         <!-- <span>{{selectedUser().name}}</span> -->
     </button>
-</div>
+</app-card>
