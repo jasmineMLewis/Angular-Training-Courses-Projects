@@ -4,7 +4,7 @@
 3. [Run a Project](#run-a-project)
  
 # Module One Getting Started
-I have documented my study notes for Module 1: Getting Started. The course I am taking is UDemy's Sofware course by Maximilian Schwarzmüller's Angular: The Complete Guide. 
+I have documented my study notes for Module 1: Getting Started.  I am enrolled in UDemy's software course by Maximilian Schwarzmüller's Angular: The Complete Guide.
 
 Below are a list of Angular CLI statements:
 1. Create a Project
