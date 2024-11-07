@@ -15,10 +15,11 @@
 14. [Ng Content](#ng-content)
 15. [Pipes](#pipes)
 16. [Service](#service)
-17. [Dependency Injection](#dependency-injection) 
+17. [Dependency Injection](#dependency-injection)
+18. [Local Storage](#local-storage)
  
 # Module Two Angular Essentials
-I have documented my study notes for Module 2: Angular Essentials – Components, Templates, Services, & More. The course I am taking is UDemy's Sofware course by Maximilian Schwarzmüller's Angular: The Complete Guide.
+I have documented my study notes for Module 2: Angular Essentials – Components, Templates, Services, & More. I am enrolled in UDemy's software course by Maximilian Schwarzmüller's Angular: The Complete Guide.
 
 Below are a list of topics within the module:
 1. Typescript Advantages
@@ -38,6 +39,7 @@ Below are a list of topics within the module:
 15. Pipes
 16. Service
 17. Dependency Injection
+18. Local Storage 
 
 # Typescript Advantages
 Typescript enforces strong and static typing. You have to be clear about which value goes where.
@@ -359,3 +361,32 @@ To register a class as injectable:
   providedIn: 'root',
 })
 ```
+
+### Inject
+You can use the "inject" method in another component after you instantiate the service in another component. "Inject" is an alternative to using the constructor to instantiate a service.
+
+The "inject" method must be imported from '@angular/core'.
+
+```
+import { inject } from '@angular/core';
+```
+
+It injects a dependency and provides it as a value for the property.
+
+```
+  private tasksService = inject(TasksService);
+```
+
+# Local Storage
+You can store items on your local browser. Typically, you connect to a server to store your data. This is not an Angular feature. 
+
+In your TaskService, use "localStorage" in a constructor.
+
+```
+  constructor() {
+    const tasks = localStorage.getItem('tasks');
+    if (tasks) {
+      this.tasks = JSON.parse(tasks);
+    }
+  }
+``` 

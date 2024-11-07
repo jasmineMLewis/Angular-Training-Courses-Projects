@@ -5,7 +5,7 @@ A repository for the course Angular The Complete-Guide (2024 Edition) by Maximil
 https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/tree/master/Angular-Complete-Guide
 
 ## Date Last Updated
-November 6, 2024
+November 7, 2024
 
 ## Technologies
 | Technology | Version  |
@@ -26,3 +26,5 @@ November 6, 2024
 1. [**Module 1: Getting Started**](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Development/Angular-Complete-Guide/study-notes/module-1-6/module-1-getting-started.md)
 
 2. [**Module 2: Angular Essentials - Components, Templates, Services & More**](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Development/Angular-Complete-Guide/study-notes/module-1-6/module-2-angular-essentials.md)
+
+3. [**Module 3: **]()
