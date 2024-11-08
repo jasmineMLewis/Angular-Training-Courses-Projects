@@ -5,7 +5,7 @@ A repository for the course Angular The Complete-Guide (2024 Edition) by Maximil
 https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/tree/master/Angular-Complete-Guide
 
 ## Date Last Updated
-November 7, 2024
+November 8, 2024
 
 ## Technologies
 | Technology | Version  |
@@ -14,9 +14,9 @@ November 7, 2024
 
 
 # Study Notes Table of Contents
+# Study Notes Table of Contents
 1. [Typescript Advantages](#typescript-advantages)
-2. [Module One Getting Started](#module-one-getting-started)
-3. [Module Two Angular Essentials](#module-two-angular-essentials)
+2. [Modules](#modules)
 
 # Typescript Advantages
 1. Typescript enforces strong and static typing. You have to be clear about which value goes where.
@@ -27,4 +27,4 @@ November 7, 2024
 
 2. [**Module 2: Angular Essentials - Components, Templates, Services & More**](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Development/Angular-Complete-Guide/study-notes/module-1-6/module-2-angular-essentials.md)
 
-3. [**Module 3: **]()
+3. [**Module 3: Angular Essentials - Working With Modules**](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Production/Angular-Complete-Guide/study-notes/module-1-6/module-3-angular-essentials-modules.md)
