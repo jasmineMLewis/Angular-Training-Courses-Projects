@@ -23,7 +23,6 @@ ng generate module module-name
 In the file "app.module.ts", components added cannot be a standalone if included in the structural directive "NgModule". 
 If using standalone components, do not include them in a modules' declarations, instead import them. "Declarations" are for non-standalone components. Modules can be imported into other modules.
 
-
 Always include "BrowserModule" because it include important features Angular use.
 
 ```
@@ -41,4 +40,20 @@ import { BrowserModule } from "@angular/platform-browser";
         TasksComponent
     ],
   })
+```
+
+
+## Export a Component in a Module 
+When you export a component in a module, it becomes available for usage in the application when you the module. 
+
+```
+@NgModule({
+  declarations: [
+    CardComponent
+ ],
+  exports: [
+    CardComponent
+  ]
+})
+export class SharedModule { }
 ```
