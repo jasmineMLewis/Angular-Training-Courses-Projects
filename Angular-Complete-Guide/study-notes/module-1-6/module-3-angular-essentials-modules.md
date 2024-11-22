@@ -13,13 +13,13 @@ Modules are containers that allow you to organize an application.
 
 Today, Standalone Components are the recommended way of building components. But you can still use "Module-based Components" with Angular Modules. You can mix and match standalone and modules.
 
-# Generate Module with CLI
+## Generate Module with CLI
 
 ```
 ng generate module module-name
 ```
 
-# Using a Module
+## Using a Module
 In the file "app.module.ts", components added cannot be a standalone if included in the structural directive "NgModule". 
 If using standalone components, do not include them in a modules' declarations, instead import them. "Declarations" are for non-standalone components. Modules can be imported into other modules.
 

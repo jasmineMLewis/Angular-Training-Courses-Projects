@@ -65,7 +65,7 @@ A repository for the course Angular The Complete-Guide (2024 Edition) by Maximil
 https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/tree/master/Angular-Complete-Guide
 
 ## Date Last Updated
-November 10, 2024
+November 22, 2024
 
 ## Technologies
 | Technology | Version  |
