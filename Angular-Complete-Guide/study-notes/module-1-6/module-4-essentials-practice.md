@@ -1,6 +1,7 @@
 # Table of Contents 
 1. [Destructing Data](#destructing-data)
 2. [Transform String to Number](#transform-string-to-number)
+3. [Required or Optional Item](#required-or-optional-item)
 
 
 # Module Four Essentials Practice
@@ -43,6 +44,35 @@ To transform a string value to a number, add the "+" plus sign in front of value
       annualInvestment: +this.enteredAnnualInvestment,
     });
   }
-``` 
+```  
 
+# Required or Optional Item 
+For Typescript, an exclamation point "!"  behind a variable indicated it is required. However, a question mark "?" Behind a variable indicates optional. 
+
+
+<ins>**Optional**</ins>
+
+```
+  @Input() results?: {
+    year: number;
+    interest: number;
+    valueEndOfYear: number;
+    annualInvestment: number;
+    totalInterest: number;
+    totalAmountInvested: number;
+  }
+```
+
+<ins>**Required**</ins>
+
+```
+  @Input() results!: {
+    year: number;
+    interest: number;
+    valueEndOfYear: number;
+    annualInvestment: number;
+    totalInterest: number;
+    totalAmountInvested: number;
+  }
+```
  
