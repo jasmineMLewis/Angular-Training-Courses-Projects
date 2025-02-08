@@ -19,6 +19,12 @@ Today, Standalone Components are the recommended way of building components. But
 ng generate module module-name
 ```
 
+Generate module without folder
+
+```
+ng generate module module-name --flat
+```
+
 ## Using a Module
 In the file "app.module.ts", components added cannot be a standalone if included in the structural directive "NgModule". 
 If using standalone components, do not include them in a modules' declarations, instead import them. "Declarations" are for non-standalone components. Modules can be imported into other modules.
