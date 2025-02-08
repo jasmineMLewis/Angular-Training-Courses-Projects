@@ -32,3 +32,5 @@ February 7, 2025
 3. [**Module 3: Angular Essentials - Working with Modules**](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Production/Angular-Complete-Guide/study-notes/module-1-6/module-3-angular-essentials-modules.md)
 
 4. [**Module 4: Essentials Practice**](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Development/Angular-Complete-Guide/study-notes/module-1-6/module-4-essentials-practice.md)
+
+5. [**Module 5: Debugging Angular Apps**]()
