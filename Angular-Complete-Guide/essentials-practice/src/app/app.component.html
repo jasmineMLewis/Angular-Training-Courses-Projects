@@ -1,2 +1,6 @@
 <app-header></app-header>
-<app-user-input (calculate)="calculateInvestmentResults($event)"></app-user-input>
+<app-user-input></app-user-input> <!-- USING Service -->
+<!-- <app-user-input (calculate)="onCalculateInvestmentResults($event)"></app-user-input> -->
+<!-- <app-investment-results [results]="resultsData"></app-investment-results> NOT USING SIGNAL -->
+<!-- <app-investment-results [results]="resultsData()"></app-investment-results> USING SIGNAL -->
+<app-investment-results></app-investment-results> <!-- USING Service -->
