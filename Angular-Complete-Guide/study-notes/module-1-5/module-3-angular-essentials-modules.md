@@ -1,3 +1,15 @@
+# Study Notes Details
+
+### Author
+Jasmine Monique Lewis
+
+### Originally Written
+
+
+### Last Modified
+
+
+
 # Table of Contents 
 1. [Modules](#modules)
 

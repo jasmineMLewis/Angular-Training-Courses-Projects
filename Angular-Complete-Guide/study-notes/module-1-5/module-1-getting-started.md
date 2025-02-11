@@ -1,3 +1,14 @@
+# Study Notes Details
+
+### Author
+Jasmine Monique Lewis
+
+### Originally Written
+
+
+### Last Modified
+
+
 # Table of Contents 
 1. [Create a Project](#create-a-project)
 2. [Create a Component](#create-a-component)

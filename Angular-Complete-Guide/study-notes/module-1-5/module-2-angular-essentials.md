@@ -1,4 +1,16 @@
+# Study Notes Details
+
+### Author
+Jasmine Monique Lewis
+
+### Originally Written
+
+
+### Last Modified
+
 # Table of Contents 
+
+
 1. [Typescript Advantages](#typescript-advantages)
 2. [Component](#component)
 3. [Input Decorator](#input-decorator)

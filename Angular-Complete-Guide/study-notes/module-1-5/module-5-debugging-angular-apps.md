@@ -1,3 +1,13 @@
+# Study Notes Details
+### Author
+Jasmine Monique Lewis
+
+### Originally Written
+
+
+### Last Modified
+
+
 # Table of Contents
 1. [Deconstructing Bugs](#deconstructing-bugs)
 2. [Using Source Tab](#using-source-tab)
@@ -22,20 +32,14 @@ The example states the file, line 13, and column and the code line.
 ## Error Cause
 The example needs a string not an object of id and name.
 
-
- 
-//insert image
- 
+![Image - module-5-error-cause.png](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Production/Angular-Complete-Guide/study-notes/module-1-5/assets/module-5-error-cause.png)
 
 
 # Using Source Tab
 If you receive an error that is not a compile error, using the Source tab in the Developer Browser tools, after pressing F12 can allow you to step through the code from the front end. The Source tab references Source Maps.
  
- 
 
-//insert image
- 
-
+![Image - module-5-using-source-tab.png](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Production/Angular-Complete-Guide/study-notes/module-1-5/assets/module-5-using-source-tab.png)
  
 
 # Angular Dev Tools
