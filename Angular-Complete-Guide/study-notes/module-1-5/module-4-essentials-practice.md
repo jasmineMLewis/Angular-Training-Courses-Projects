@@ -1,3 +1,14 @@
+# Study Notes Details
+
+### Author
+Jasmine Monique Lewis
+
+### Originally Written
+
+
+### Last Modified
+
+
 # Table of Contents 
 1. [Destructing Data](#destructing-data)
 2. [Communicate to Child Component](#communicate-to-child-component)
