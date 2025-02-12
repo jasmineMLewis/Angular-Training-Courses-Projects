@@ -6,23 +6,26 @@ Jasmine Monique Lewis
 February 10, 2024
 
 ### Last Modified
-February 10, 2024
+February 11, 2024
 
 # Table of Contents
-1. [When to Split a Component into Multiple Components](#when-to-split-a-component-into-multiple-components) 
+1. [Split Component into Multiple Components](#split-component-into-multiple-components)
 2. [Create a Component in a Folder](#create-a-component-in-a-folder)
 3. [Reusable Components](#reusable-components)
+4. [NgContent](#ngcontent)
+5. [Attribute Selector](#attribute-selector)
 
 # Module Six Components and Templates Deep Dive
 I have documented my study notes for Module 6: Components & Templates – Deep Dive. I am enrolled in UDemy's software course by Maximilian Schwarzmüller's Angular: The Complete Guide.
 
 Below are a list of topics within the module:
-1. When to Split a Component into Multiple Components
+1. Split a Component into Multiple Components
 2. Create a Component in a Folder
 3. Reusable Components
+4. NgContent
+5. Attribute Selector
 
-# When to Split a Component into Multiple Components 
-
+# Split a Component into Multiple Components
 ## Separation of Concerns Principle
 1. Every component should only do "***one thing***"
 2. Create granular, small components and work with many components.
@@ -132,4 +135,37 @@ Thirdly, to access the input signal for header two's title, use ***String Interp
     <app-dashboard-item [image]="{ src: 'status.png', alt: 'A signal symbol' }" title="Server Status">
       <app-server-status></app-server-status>
     </app-dashboard-item>
+```
+
+# NgContent
+## Content Projection
+A nonstandard HTML element that is a placeholder for your templates to indicate to Angular that it should render any wrapped content in that place.
+
+*dashboard-item.component.html*
+ 
+```
+<div class="dashboard-item">
+    <article>
+        <header>
+            <img [src]="image().src" [alt]="image().alt" />
+            <h2>{{ title() }}</h2>
+        </header>
+        <ng-content></ng-content>
+    </article>
+</div>
+```
+
+# Attribute Selector
+An Attribute Selector is defined by using square brackets. You can combine the attribute selector with other selectors. It is typically used if you would like to extend a built-in element.
+
+*Attribute Selector*
+
+```
+  selector: '[appButton]',
+```
+
+*Attribute Selector with another selector*
+
+```
+selector: 'button[appButton]',
 ```
