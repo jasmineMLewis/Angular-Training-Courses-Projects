@@ -8,7 +8,7 @@ import { Component, input } from '@angular/core';
   styleUrl: './dashboard-item.component.css',
 })
 export class DashboardItemComponent {
-  //old way to collect input
+  // < Angular 16
   // @Input({required: true}) image!: {
   //   src: string;
   //   alt: string;
