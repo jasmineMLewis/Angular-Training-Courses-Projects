@@ -1,3 +1,5 @@
+# Module Five Debugging Angular Apps
+
 # Study Notes Details
 ### Author
 Jasmine Monique Lewis

@@ -1,3 +1,5 @@
+# Module Six Components and Templates Deep Dive
+
 # Study Notes Details
 ### Author
 Jasmine Monique Lewis
@@ -6,7 +8,7 @@ Jasmine Monique Lewis
 February 10, 2024
 
 ### Last Modified
-February 11, 2024
+February 14, 2024
 
 # Table of Contents
 1. [Split Component into Multiple Components](#split-component-into-multiple-components)
@@ -98,6 +100,8 @@ There are two ways of registering inputs in Angular. You can use the Input Decor
 2. The input signal is a newer way to access data in > Angular 17.1. 
 3. To indicate input is required, put a ".required" after the word "input".
 
+***Example***
+
 ```
   image = input.required<{
     src: string;
@@ -110,6 +114,8 @@ To indicate input type, use "<>" angle brackets and place details in between ang
 ```
 title = input.required<string>();
 ```
+
+*dashboard-item.component.html*
 
 First set, property binding to make the image source and alternate configurable.
 
@@ -139,7 +145,9 @@ Thirdly, to access the input signal for header two's title, use ***String Interp
 
 # NgContent
 ## Content Projection
-A nonstandard HTML element that is a placeholder for your templates to indicate to Angular that it should render any wrapped content in that place.
+***Content Projection***, a nonstandard HTML element that is a placeholder for your templates to indicate to Angular that it should render any wrapped content in that place.
+
+***Example***
 
 *dashboard-item.component.html*
  
@@ -155,8 +163,82 @@ A nonstandard HTML element that is a placeholder for your templates to indicate 
 </div>
 ```
 
+## Attributes
+When using multiple NgContent and you want to specify where functionality should be located you can use the "select" attribute:
+
+### Select
+
+***Example***
+
+*button.component.html*
+
+```
+<span>
+    <ng-content></ng-content>
+</span>
+<ng-content select=".icon"></ng-content>
+```
+
+*header.component.html*
+
+```
+<button appButton>
+    Logout
+   <span class="icon"> → </span>
+</button>
+```
+
+## View Encapsulation
+***View Encapsulation*** allows you to easier control styles.
+
+### ngProjectAs
+***NgProjectAs*** can be added to any element anywhere you are using content projection. It allows you to define a selector that can be matched from inside the component where you're trying tp project specific content into.
+
+***Example***
+
+*button.component.html*
+
+```
+<span>
+    <ng-content></ng-content>
+</span>
+<span class="icon">
+    <ng-content select="icon"></ng-content>
+</span>
+```
+
+*header.component.html*
+
+```
+<button appButton>
+   Logout
+   <span class="icon"> → </span>
+</button>
+```
+
+### Fallback content
+If you do not include content where content is supposed to be such as the icon above you can setup *Fallback Content*.
+
+***Example***
+
+*button.component.html*
+
+```
+<span>
+    <ng-content></ng-content>
+</span>
+<span class="icon">
+    <ng-content select="icon">
+        ? <!-- Fallback Cotent -->
+    </ng-content>
+</span>
+```
+
+
 # Attribute Selector
 An Attribute Selector is defined by using square brackets. You can combine the attribute selector with other selectors. It is typically used if you would like to extend a built-in element.
+
+***Example***
 
 *Attribute Selector*
 

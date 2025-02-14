@@ -1,5 +1,6 @@
-# Study Notes Details
+# Module Three Angular Essentials
 
+# Study Notes Details
 ### Author
 Jasmine Monique Lewis
 
@@ -7,7 +8,6 @@ Jasmine Monique Lewis
 
 
 ### Last Modified
-
 
 
 # Table of Contents 
