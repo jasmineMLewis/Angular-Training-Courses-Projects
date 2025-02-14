@@ -1,5 +1,6 @@
-# Study Notes Details
+# Module Two Angular Essentials
 
+# Study Notes Details
 ### Author
 Jasmine Monique Lewis
 
@@ -8,9 +9,8 @@ Jasmine Monique Lewis
 
 ### Last Modified
 
-# Table of Contents 
 
-
+# Table of Contents
 1. [Typescript Advantages](#typescript-advantages)
 2. [Component](#component)
 3. [Input Decorator](#input-decorator)
