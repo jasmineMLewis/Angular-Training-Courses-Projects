@@ -3,15 +3,28 @@
 # Table of Contents
 
 1. [General Information](#general-information)
-2. [Angular Fundamentals Course](#angular-fundamentals-course)
-3. [Angular CLI](#angular-cli)
-4. [Angular Getting Started](#angular-getting-started)
-5. [Angular The Complete Guide](#angular-the-complete-guide)
+2. [Angular The Complete Guide](#angular-the-complete-guide)
+3. [Angular Fundamentals Course](#angular-fundamentals-course)
+4. [Angular CLI](#angular-cli)
+5. [Angular Getting Started](#angular-getting-started)
 
  
 # General Information
 A respository of all Angular training courses' projects from PluralSight and UDemy that I am taking to learn Angular.
 
+# Angular The Complete Guide
+A repository for the course Angular The Complete-Guide (2024 Edition) by Maximilian Schwarzmüller on UDemy.
+
+## Project GitHub
+https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/tree/master/Angular-Complete-Guide
+
+## Date Project Last Updated
+February 18, 2025
+
+## Technologies
+| Technology | Version  |
+|--|--|
+| Angular | 18.0.0 |
  
 # Angular Fundamentals Course
 A repository for the course Angular: Fundamentals by Joe and Jim Cooper on PluralSight
@@ -56,18 +69,3 @@ https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/tree/master/A
 | Technology | Version  |
 |--|--|
 | Angular | 8.1.2 |
-
-
-# Angular The Complete Guide
-A repository for the course Angular The Complete-Guide (2024 Edition) by Maximilian Schwarzmüller on UDemy.
-
-## Project GitHub
-https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/tree/master/Angular-Complete-Guide
-
-## Date Last Updated
-February 10, 2025
-
-## Technologies
-| Technology | Version  |
-|--|--|
-| Angular | 18.0.0 |
