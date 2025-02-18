@@ -8,7 +8,7 @@ Jasmine Monique Lewis
 February 10, 2024
 
 ### Last Modified
-February 14, 2024
+February 18, 2024
 
 # Table of Contents
 1. [Split Component into Multiple Components](#split-component-into-multiple-components)
@@ -16,6 +16,7 @@ February 14, 2024
 3. [Reusable Components](#reusable-components)
 4. [NgContent](#ngcontent)
 5. [Attribute Selector](#attribute-selector)
+6. [Host Element](#host-element)
 
 # Module Six Components and Templates Deep Dive
 I have documented my study notes for Module 6: Components & Templates – Deep Dive. I am enrolled in UDemy's software course by Maximilian Schwarzmüller's Angular: The Complete Guide.
@@ -250,4 +251,105 @@ An Attribute Selector is defined by using square brackets. You can combine the a
 
 ```
 selector: 'button[appButton]',
+```
+
+
+# Host Element
+Every Angular component has a *Host Element*. There are two ways to access the *Host Element*.
+
+***Example***
+A component with a selector of "app-header" targets an <app-header> element which is rendered into the real DOM. For the button component, the *Host Element* is the "button" with the attribute "appButton".
+
+*button.component.html* 
+
+```
+selector: 'button[appButton]',
+```
+
+To target that host we will make the following changes in the style sheet. The ":host" in Angular allow you to directly apply styles to the rendered *Host Element*. The component *Host Element* is NOT considered a part of the component template, but will be affected by the (scoped) component styles via :host.
+
+
+Original CSS
+
+*button.component.css*
+
+```
+button {
+  display: inline-block;
+  padding: 0.65rem 1.35rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  background-color: #691ebe;
+  color: white;
+  border: none;
+}
+
+button:hover {
+  background-color: #551b98;
+}
+
+.icon {
+  display: inline-block;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+button:hover .icon {
+  transform: translateX(4px);
+}
+```
+
+Modified CSS with ":host"
+ 
+```
+:host {
+  display: inline-block;
+  padding: 0.65rem 1.35rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  background-color: #691ebe;
+  color: white;
+  border: none;
+}
+
+:host:hover {
+  background-color: #551b98;
+}
+
+.icon {
+  display: inline-block;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+:host:hover .icon {
+  transform: translateX(4px);
+}
+```
+
+*Important*: The elements targeted by your component selectors *do NOT* act as placeholders and *are NOT* replaced when the page is rendered!
+
+Instead, the selected elements are *preserved* and simply *"enhanced" taken over* by you component login and markup!
+
+***Example***
+Within the Component you can use the another form of host with encapsulation. 
+
+*dashboard-item.component.ts*
+
+```
+@Component({
+  selector: 'app-dashboard-item',
+  standalone: true,
+  imports: [],
+  templateUrl: './dashboard-item.component.html',
+  styleUrl: './dashboard-item.component.css',
+  encapsulation: ViewEncapsulation.None, //Disables style scoping for form fields; typically will not need to disable
+  host: { //Host wants an object as a value, and that object takes any key value pairs of yoru choice. It will add the key value pairs and add as properties on your host element.
+    class: 'dashboard-item'
+  } 
+})
 ```
