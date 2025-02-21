@@ -8,7 +8,7 @@ Jasmine Monique Lewis
 February 10, 2024
 
 ### Last Modified
-February 18, 2024
+February 21, 2024
 
 # Table of Contents
 1. [Split Component into Multiple Components](#split-component-into-multiple-components)
@@ -352,4 +352,99 @@ Within the Component you can use the another form of host with encapsulation.
     class: 'dashboard-item'
   } 
 })
+```
+
+## Host Binding
+When it comes to adding properties to the *Host Element*,  another way is to add a property to your component class with *Host Binding*. It will look the variable and set the value as the property.
+
+***Example***
+*contol.component.html*
+
+*Host Binding*
+
+```
+export class ControlComponent {
+ @HostBinding('class') className = 'contorl';
+}
+```
+
+## Host Listener
+Similar to *Host Binding*, *Host Listener* decorator  allows you  to bind a method to an event.
+
+***Example***
+*contol.component.html*
+
+*Host function: (click in) in Component Decorator*
+
+```
+@Component({
+  selector: 'app-control',
+  standalone: true,
+  imports: [],
+  templateUrl: './control.component.html',
+  styleUrl: './control.component.css',
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    class: 'control',
+    '(click)': 'onClick()'
+  }
+})
+export class ControlComponent {
+ onClick() {
+  console.log('Clicked!');
+ }
+}
+```
+
+***Example***
+*contol.component.html*
+
+*HostListener in Component class*
+
+```
+@Component({
+  selector: 'app-control',
+  standalone: true,
+  imports: [],
+  templateUrl: './control.component.html',
+  styleUrl: './control.component.css',
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    class: 'control',
+    '(click)': 'onClick()'
+  }
+})
+export class ControlComponent {
+ @HostListener('click') onClick() {
+  console.log('Clicked!');
+ }
+ label = input.required<string>();
+}
+```
+
+Sometimes, would you need to access *Host Element*programmatically in your Typescript code. However, if necessary you can inject a special value into your component, a value that will be provided by Angular, and you can inject eeither with the constructor or with help of that inject function.
+
+ElementRef, an Angular class, which defines a reference to some element that’s rendered to the page. But by injecting it to the page, Angular will give you access to the host element of that component.
+
+```
+@Component({
+  selector: 'app-control',
+  standalone: true,
+  imports: [],
+  templateUrl: './control.component.html',
+  styleUrl: './control.component.css',
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    class: 'control'
+  }
+})
+
+export class ControlComponent {
+ label = input.required<string>();
+ private el = inject(ElementRef);
+ onClick() {
+    console.log('Clicked!');
+    console.log(this.el);
+   }
+}
 ```
