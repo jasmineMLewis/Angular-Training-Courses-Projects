@@ -9,7 +9,7 @@ https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/tree/master/A
 2. https://github.com/mschwarzmueller/angular-complete-guide-course-resources/
 
 ## Date Last Updated
-February 21, 2025
+February 24, 2025
 
 ## Technologies
 | Technology | Version  |
@@ -18,10 +18,14 @@ February 21, 2025
 
 # Study Notes Table of Contents
 1. [Typescript Advantages](#typescript-advantages)
-2. [Modules](#modules)
+2. [Angular Best Practice Tips](#angular-best-practice-tips)
+3. [Modules](#modules)
 
 # Typescript Advantages
 1. Typescript enforces strong and static typing. You have to be clear about which value goes where.
+
+# Angular Best Practice Tips
+IN PROGRESS
 
 # Modules
 ### Publication Links

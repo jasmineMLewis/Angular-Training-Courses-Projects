@@ -8,7 +8,7 @@ Jasmine Monique Lewis
 February 10, 2024
 
 ### Last Modified
-February 21, 2024
+February 24, 2024
 
 # Table of Contents
 1. [Split Component into Multiple Components](#split-component-into-multiple-components)
@@ -36,7 +36,7 @@ Below are a list of topics within the module:
 ***Example***
 In the image below, it is a single page, but it has four different functions and can be separated into four components based on the application's complexity.
 
-![Image - module-6-separation-of-concerns-principle.png](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Production/Angular-Complete-Guide/study-notes/module-6-8/assets/module-6-separation-of-concerns-principle.png)
+![Image - Module 6: Separation of Concerns Principle](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Production/Angular-Complete-Guide/study-notes/module-6-8/assets/module-6-separation-of-concerns-principle.png)
 
 ## Simplicity and Code Colocation
 1. It allows for a simpler application without using multiple components.
@@ -448,3 +448,80 @@ export class ControlComponent {
    }
 }
 ```
+
+# Component Lifecycle
+Developers may access crucial points in a component or directive's lifespan, from creation to destruction, by using angular lifecycle hooks. Resources can be initialized, updated, and cleaned up with the help of these hooks.
+
+## Lifecycle Execution Order
+The following diagrams show the execution order of Angular's lifecycle hooks.
+
+![Image – Module 6: Angular Lifecycle Execution Order During Initialization]()
+ 
+![Image - module-6 Angular Lifecycle Execution Order Subsequent Updates]()
+
+***Reference*** | Angular Documentation | [Lifecycle Hooks ](https://angular.dev/guide/components/lifecycle#execution-order) | Web Page: Components | Topic: Execution Order | Date Retrieved: February 24, 2025
+
+## ngOnIt
+After Angular has set the initial values for each component's inputs, the *ngOnInit* method is executed. The ngOnInit method of a component executes precisely once. This phase takes place prior to the initialization of the component's own template. This implies that you can use the component's initial input values to change its state.
+
+***Example***
+*server-status.component.ts*
+
+```
+constructor() {}
+
+ngOnInit() {
+    //SetInterval is a JavaScript function
+    setInterval(() => {
+      const rnd = Math.random(); //0 - 0.9999
+      if (rnd < 0.5) {
+        this.currentStatus = 'online';
+      } else if (rnd < 0.9) {
+        this.currentStatus = 'offline';
+      } else {
+        this.currentStatus = 'unknown';
+      }
+    }, 5000); //5 seconds, but 5000 milliseconds
+  }
+```
+
+To ensure you do not misspell lifecycle hooks' name, you should implement the TypeScript interface on the class name.
+
+***Example***
+*server-status.component.ts*
+
+```
+@Component({
+  selector: 'app-server-status',
+  standalone: true,
+  imports: [],
+  templateUrl: './server-status.component.html',
+  styleUrl: './server-status.component.css',
+})
+export class ServerStatusComponent implements OnInit {
+  ngOnInit() {}
+```
+
+<ins>***#### Angular Best Practices Tip***</ins> or <ins>***#### Angular Best Practices Tip***</ins>
+Using *ngOnIt* for initialization tasks, such as establishing an interval, keeping the constructor lean, and utilizing it exclusively to carry out simple class initialization is an Angular Best Practice.  Initial class property values and other related tasks should be assigned via a constructor.
+
+## ngOnChanges
+After any component inputs have changed, the *ngOnChanges* method is executed. This step takes place prior to checking the component's own template. This implies that you can use the component's initial input values to change its state. The first *ngOnChanges* executes before ngOnInit during initialization.
+
+## ngDoCheck
+Before Angular evaluates a component's template for changes, the *ngDoCheck* method is executed.  This lifecycle hook allows you to manually update the component's state and check for state changes outside of Angular's standard change detection. This technique is used a lot and can have a big effect on how well your website performs. If at all possible, avoid defining this hook; only use it when you have no other option.
+
+## ngAfterContentInit
+After all of the children nested inside the component (its content) have been initialized, the *ngAfterContentInit* method executes once. This lifecycle hook allows you to view the output of content queries, for example contentChild and contentChildren. Although the initialized state of these queries is accessible, an ExpressionChangedAfterItHasBeenCheckedError is raised if you try to modify any state using this method.
+
+## ngAfterContentChecked
+The *ngAfterContentChecked* method is executed each time the children that are nested inside the component (its content) are examined for modifications. This technique can have a significant impact on how well your page performs and is used quite frequently. This hook should only be used when there's no other option; avoid defining it whenever you can. Although the content queries, for example contentChild and contentChildren, updated states are accessible here, trying to modify any of the states in this method yields an ExpressionChangedAfterItHasBeenCheckedError.
+
+## ngAfterViewInit
+Once all of the children in the component's template (its view) have been initialized, the *ngAfterViewInit* method is called. The viewChild and viewChildren functions are examples of view queries whose results can be read using this lifecycle hook.
+
+## ngAfterViewChecked
+Every time the children in the component's template (its view) are examined for modifications, the *ngAfterViewChecked* method is called. This technique is used a lot and can have a big effect on how well your website performs. If at all possible, avoid defining this hook; only use it when you have no other option. Although the updated state of view queries is accessible here, this method returns an ExpressionChangedAfterItHasBeenCheckedError if you try to modify any state.
+
+## ngOnDestroy
+When a component or directive is destroyed, the Angular lifecycle hook *ngOnDestroy* method is triggered. In order to stop memory leaks, it is mostly utilized for cleanup operations. The logic of the component determines if you need to use it.
