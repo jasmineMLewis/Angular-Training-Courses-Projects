@@ -8,7 +8,7 @@ Jasmine Monique Lewis
 February 10, 2024
 
 ### Last Modified
-February 24, 2024
+February 26, 2024
 
 # Table of Contents
 1. [Split Component into Multiple Components](#split-component-into-multiple-components)
@@ -17,6 +17,8 @@ February 24, 2024
 4. [NgContent](#ngcontent)
 5. [Attribute Selector](#attribute-selector)
 6. [Host Element](#host-element)
+7. [Component Lifecycle](#component-lifecycle)
+8. [Memory Leak](#memory-leak)
 
 # Module Six Components and Templates Deep Dive
 I have documented my study notes for Module 6: Components & Templates – Deep Dive. I am enrolled in UDemy's software course by Maximilian Schwarzmüller's Angular: The Complete Guide.
@@ -27,6 +29,9 @@ Below are a list of topics within the module:
 3. Reusable Components
 4. NgContent
 5. Attribute Selector
+6. Host Element
+7. Component Lifecycle
+8. Memory Leak
 
 # Split a Component into Multiple Components
 ## Separation of Concerns Principle
@@ -457,11 +462,13 @@ The following diagrams show the execution order of Angular's lifecycle hooks.
 
 ![Image – Module 6: Angular Lifecycle Execution Order During Initialization]()
  
+<br/>
+
 ![Image - module-6 Angular Lifecycle Execution Order Subsequent Updates]()
 
 ***Reference*** | Angular Documentation | [Lifecycle Hooks ](https://angular.dev/guide/components/lifecycle#execution-order) | Web Page: Components | Topic: Execution Order | Date Retrieved: February 24, 2025
 
-## ngOnIt
+### ngOnIt
 After Angular has set the initial values for each component's inputs, the *ngOnInit* method is executed. The ngOnInit method of a component executes precisely once. This phase takes place prior to the initialization of the component's own template. This implies that you can use the component's initial input values to change its state.
 
 ***Example***
@@ -505,23 +512,95 @@ export class ServerStatusComponent implements OnInit {
 <ins>***#### Angular Best Practices Tip***</ins> or <ins>***#### Angular Best Practices Tip***</ins>
 Using *ngOnIt* for initialization tasks, such as establishing an interval, keeping the constructor lean, and utilizing it exclusively to carry out simple class initialization is an Angular Best Practice.  Initial class property values and other related tasks should be assigned via a constructor.
 
-## ngOnChanges
+### ngOnChanges
 After any component inputs have changed, the *ngOnChanges* method is executed. This step takes place prior to checking the component's own template. This implies that you can use the component's initial input values to change its state. The first *ngOnChanges* executes before ngOnInit during initialization.
 
-## ngDoCheck
+### ngDoCheck
 Before Angular evaluates a component's template for changes, the *ngDoCheck* method is executed.  This lifecycle hook allows you to manually update the component's state and check for state changes outside of Angular's standard change detection. This technique is used a lot and can have a big effect on how well your website performs. If at all possible, avoid defining this hook; only use it when you have no other option.
 
-## ngAfterContentInit
+### ngAfterContentInit
 After all of the children nested inside the component (its content) have been initialized, the *ngAfterContentInit* method executes once. This lifecycle hook allows you to view the output of content queries, for example contentChild and contentChildren. Although the initialized state of these queries is accessible, an ExpressionChangedAfterItHasBeenCheckedError is raised if you try to modify any state using this method.
 
-## ngAfterContentChecked
+### ngAfterContentChecked
 The *ngAfterContentChecked* method is executed each time the children that are nested inside the component (its content) are examined for modifications. This technique can have a significant impact on how well your page performs and is used quite frequently. This hook should only be used when there's no other option; avoid defining it whenever you can. Although the content queries, for example contentChild and contentChildren, updated states are accessible here, trying to modify any of the states in this method yields an ExpressionChangedAfterItHasBeenCheckedError.
 
-## ngAfterViewInit
+### ngAfterViewInit
 Once all of the children in the component's template (its view) have been initialized, the *ngAfterViewInit* method is called. The viewChild and viewChildren functions are examples of view queries whose results can be read using this lifecycle hook.
 
-## ngAfterViewChecked
+### ngAfterViewChecked
 Every time the children in the component's template (its view) are examined for modifications, the *ngAfterViewChecked* method is called. This technique is used a lot and can have a big effect on how well your website performs. If at all possible, avoid defining this hook; only use it when you have no other option. Although the updated state of view queries is accessible here, this method returns an ExpressionChangedAfterItHasBeenCheckedError if you try to modify any state.
 
-## ngOnDestroy
+### ngOnDestroy
 When a component or directive is destroyed, the Angular lifecycle hook *ngOnDestroy* method is triggered. In order to stop memory leaks, it is mostly utilized for cleanup operations. The logic of the component determines if you need to use it.
+
+
+# Memory Leak
+A *Memory Leak*  can have a negative impact on the performance of your application.
+
+## Using Intervals
+When using intervals and the component is removed, it is a good idea to clean up. If you have an interval that continues to run behind the scenes, even though the component is gone, you have a memory leak in your application.
+
+# Forms
+To use forms, import FormsModule and use ngSumbit with the form.
+
+***Example***
+*new-ticket.component.ts*
+
+```
+@Component({
+...  
+imports: [FormsModule],
+})
+```
+
+*new-ticket.component.html*
+
+```
+<form (ngSubmit)="onSubmit(titleInput)">
+</form>
+```
+
+## Template Variable
+You can store form elements in a *template variable* by adding a special attribute to that element that starts with an hashtag and any name of your choice. It is stored in that variable and it is available anywhere in that template.
+
+### Alternate To Retrieve Form Values
+
+***Example***
+*new-ticket.component.ts*
+
+```
+  public onSubmit(title:string, ticketText: string) {
+    console.log(title);
+    console.log(ticketText);
+  }
+```
+
+The syntax yielded to the console is vanilla JavaScript's standard browser input DOM object.
+
+*new-ticket.component.html*
+
+```
+<form (ngSubmit)="onSubmit(titleInput.value, ticketInput.value)">
+    <app-control label="Title">
+        <input name="title" id="title" #titleInput />
+    </app-control>
+    <app-control label="Request">
+        <textarea name="request" id="request" rows="3" #ticketInput></textarea>
+    </app-control>
+    <p>
+        <button appButton>
+            Submit
+            <span ngProjectAs="icon"> ⌲ </span>
+        </button>
+    </p>
+</form>
+```
+
+*Important Note about Template Variable*
+*Template Variables* do not always give you access to the DOM element. They access HTMLElements.
+If you place a component variable on a form element and attempt to use the template variable it will not work because the it convert to an Angular instance. By default you access the DOM element, but if you put the template variable on one of your components, then you get access to the component instance instead.
+
+***Example***
+*new-ticket.component.html*
+
+![Image – Module 6 Form Button Component Instance]()
