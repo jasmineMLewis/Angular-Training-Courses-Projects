@@ -604,3 +604,26 @@ If you place a component variable on a form element and attempt to use the templ
 *new-ticket.component.html*
 
 ![Image – Module 6 Form Button Component Instance]()
+
+# ViewChild
+A *ViewChild* decorator can be used to select elements in the template of a component and make them available in the component class. It is a decorator that helps us find child elements in that component's view, do in that component's template.
+A different way to get an element in the DOM that has the template variable on it is *ViewChild* decorator.
+ViewChild and ViewChildren only allow you to collect that is part of the template.
+
+***Example***
+*new-ticket.component.ts*
+
+Decorator
+
+```
+ @ViewChild('form') form?: ElementRef<HTMLFormElement>;
+```
+
+Signal
+
+```
+private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
+```
+
+# Content Child
+*Content Child*  allow you to collect content using ng-content. If using ng-content into a template, it is not apart of the template.
