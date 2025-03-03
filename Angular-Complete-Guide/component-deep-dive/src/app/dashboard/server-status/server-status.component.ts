@@ -2,8 +2,10 @@ import {
   AfterViewInit,
   Component,
   DestroyRef,
+  effect,
   inject,
   OnInit,
+  signal,
 } from '@angular/core';
 
 @Component({
@@ -14,23 +16,20 @@ import {
   styleUrl: './server-status.component.css',
 })
 export class ServerStatusComponent implements AfterViewInit, OnInit {
-  /**
-   * Way to organize methods (via Goodgle) and alphabetize
-   *   // Lifecycle hooks
-   *   // Public methods
-   *   / Protected methods (for inheritance, if needed)
-   *   // Private methods (internal logic)
-   *   // Helper functions
-   */
-
   //instead of assign to offline, set variable as a union, used for dynamic, create in constructor upon instantiation
-  public currentStatus: 'online' | 'offline' | 'unknown' = 'offline';
+  //public currentStatus: 'online' | 'offline' | 'unknown' = 'offline';
+  //Now using a signal function provided by Angular core, manage my state with the help of signals, overwrite the item wrppaed by signal, but one of these 3
+  public currentStatus = signal<'online' | 'offline' | 'unknown'>('offline');
 
   //alternative/updated way to ngOnDestroy
   private destroyRef = inject(DestroyRef);
   //private interval? = ReturnType<typeof setInterval>; way to use with ngOnDestroy
 
-  constructor() {}
+  constructor() {
+    effect(() => {
+      console.log(this.currentStatus());
+    });
+  }
 
   ngAfterViewInit(): void {
     console.log('AFTER VIEW INIT');
@@ -49,12 +48,23 @@ export class ServerStatusComponent implements AfterViewInit, OnInit {
     const interval = setInterval(() => {
       const rnd = Math.random(); //0 - 0.9999
 
+    //   //using string with union
+    //   if (rnd < 0.5) {
+    //     this.currentStatus = 'online';
+    //   } else if (rnd < 0.9) {
+    //     this.currentStatus = 'offline';
+    //   } else {
+    //     this.currentStatus = 'unknown';
+    //   }
+    // }, 5000); //5 seconds, but 5000 milliseconds
+
+      //using signal
       if (rnd < 0.5) {
-        this.currentStatus = 'online';
+        this.currentStatus.set('online');
       } else if (rnd < 0.9) {
-        this.currentStatus = 'offline';
+        this.currentStatus.set( 'offline');
       } else {
-        this.currentStatus = 'unknown';
+        this.currentStatus.set( 'unknown');
       }
     }, 5000); //5 seconds, but 5000 milliseconds
 
