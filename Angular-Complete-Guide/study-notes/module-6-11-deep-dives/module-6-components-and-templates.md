@@ -5,10 +5,10 @@
 Jasmine Monique Lewis
 
 ### Originally Written
-February 10, 2024
+February 10, 2025
 
 ### Last Modified
-February 26, 2024
+March 3, 2025
 
 # Table of Contents
 1. [Split Component into Multiple Components](#split-component-into-multiple-components)
@@ -19,6 +19,7 @@ February 26, 2024
 6. [Host Element](#host-element)
 7. [Component Lifecycle](#component-lifecycle)
 8. [Memory Leak](#memory-leak)
+9. [Effect](#effect)
 
 # Module Six Components and Templates Deep Dive
 I have documented my study notes for Module 6: Components & Templates – Deep Dive. I am enrolled in UDemy's software course by Maximilian Schwarzmüller's Angular: The Complete Guide.
@@ -32,6 +33,7 @@ Below are a list of topics within the module:
 6. Host Element
 7. Component Lifecycle
 8. Memory Leak
+9. Effect
 
 # Split a Component into Multiple Components
 ## Separation of Concerns Principle
@@ -41,7 +43,7 @@ Below are a list of topics within the module:
 ***Example***
 In the image below, it is a single page, but it has four different functions and can be separated into four components based on the application's complexity.
 
-![Image - Module 6: Separation of Concerns Principle](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Production/Angular-Complete-Guide/study-notes/module-6-8/assets/module-6-separation-of-concerns-principle.png)
+![Image - Module 6: Separation of Concerns Principle](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Production/Angular-Complete-Guide/study-notes/module-6-11-deep-dives/assets/module-6/module-6-separation-of-concerns-principle.png)
 
 ## Simplicity and Code Colocation
 1. It allows for a simpler application without using multiple components.
@@ -460,11 +462,11 @@ Developers may access crucial points in a component or directive's lifespan, fro
 ## Lifecycle Execution Order
 The following diagrams show the execution order of Angular's lifecycle hooks.
 
-![Image – Module 6: Angular Lifecycle Execution Order During Initialization]()
+![Image – Module 6: Angular Lifecycle Execution Order During Initialization](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Production/Angular-Complete-Guide/study-notes/module-6-11-deep-dives/assets/module-6/module-6-angular-lifecycle-execution-order-during-initialization.png)
  
 <br/>
 
-![Image - module-6 Angular Lifecycle Execution Order Subsequent Updates]()
+![Image - module-6 Angular Lifecycle Execution Order Subsequent Updates](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Production/Angular-Complete-Guide/study-notes/module-6-11-deep-dives/assets/module-6/module-6-angular-lifecycle-execution-order-subsequent-updates.png)
 
 ***Reference*** | Angular Documentation | [Lifecycle Hooks ](https://angular.dev/guide/components/lifecycle#execution-order) | Web Page: Components | Topic: Execution Order | Date Retrieved: February 24, 2025
 
@@ -533,6 +535,12 @@ Every time the children in the component's template (its view) are examined for 
 ### ngOnDestroy
 When a component or directive is destroyed, the Angular lifecycle hook *ngOnDestroy* method is triggered. In order to stop memory leaks, it is mostly utilized for cleanup operations. The logic of the component determines if you need to use it.
 
+### afterRender and afterNextRender 
+The *afterRender* and *afterNextRender* functions let you register a render callback to be invoked after Angular has finished rendering all components on the page into the DOM.
+
+*afterRender* allow you to define functions that should be executed whenever anything changes anywhere in entire Angular application.
+
+*afterNextRender* allow you to define functions that should be executed after the next change anywhere in entire Angular application.
 
 # Memory Leak
 A *Memory Leak*  can have a negative impact on the performance of your application.
@@ -603,7 +611,7 @@ If you place a component variable on a form element and attempt to use the templ
 ***Example***
 *new-ticket.component.html*
 
-![Image – Module 6 Form Button Component Instance]()
+![Image – Module 6 Form Button Component Instance](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Production/Angular-Complete-Guide/study-notes/module-6-11-deep-dives/assets/module-6/module-6-form-button-component-instance.png)
 
 # ViewChild
 A *ViewChild* decorator can be used to select elements in the template of a component and make them available in the component class. It is a decorator that helps us find child elements in that component's view, do in that component's template.
@@ -626,4 +634,15 @@ private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
 ```
 
 # Content Child
-*Content Child*  allow you to collect content using ng-content. If using ng-content into a template, it is not apart of the template.
+*Content Child*  allow you to collect content using ng-content. If using ng-content into a template, it is not a part of the template.
+
+# Effect
+*Effect*  function allow you will scheduled and executed whenever the signals that it reads changes.
+
+```
+  constructor() {
+    effect(() => {
+      console.log(this.currentStatus());
+    });
+}
+```
