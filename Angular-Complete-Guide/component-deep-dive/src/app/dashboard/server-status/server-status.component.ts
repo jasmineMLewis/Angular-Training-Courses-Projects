@@ -26,13 +26,13 @@ export class ServerStatusComponent implements AfterViewInit, OnInit {
   //private interval? = ReturnType<typeof setInterval>; way to use with ngOnDestroy
 
   constructor() {
-    effect(() => {
-      console.log(this.currentStatus());
-    });
+    // effect(() => {
+    //   console.log(this.currentStatus());
+    // });
   }
 
   ngAfterViewInit(): void {
-    console.log('AFTER VIEW INIT');
+    //  console.log('AFTER VIEW INIT');
   }
 
   // ngOnDestroy(): void {
@@ -40,7 +40,7 @@ export class ServerStatusComponent implements AfterViewInit, OnInit {
   // }
 
   ngOnInit(): void {
-    console.log('ON INIT');
+    //console.log('ON INIT');
 
     //this.interval = setInterval... Using ngOnDestroy alternative to private destroyRef = inject(DestroyRef);
 
@@ -48,23 +48,23 @@ export class ServerStatusComponent implements AfterViewInit, OnInit {
     const interval = setInterval(() => {
       const rnd = Math.random(); //0 - 0.9999
 
-    //   //using string with union
-    //   if (rnd < 0.5) {
-    //     this.currentStatus = 'online';
-    //   } else if (rnd < 0.9) {
-    //     this.currentStatus = 'offline';
-    //   } else {
-    //     this.currentStatus = 'unknown';
-    //   }
-    // }, 5000); //5 seconds, but 5000 milliseconds
+      //   //using string with union
+      //   if (rnd < 0.5) {
+      //     this.currentStatus = 'online';
+      //   } else if (rnd < 0.9) {
+      //     this.currentStatus = 'offline';
+      //   } else {
+      //     this.currentStatus = 'unknown';
+      //   }
+      // }, 5000); //5 seconds, but 5000 milliseconds
 
       //using signal
       if (rnd < 0.5) {
         this.currentStatus.set('online');
       } else if (rnd < 0.9) {
-        this.currentStatus.set( 'offline');
+        this.currentStatus.set('offline');
       } else {
-        this.currentStatus.set( 'unknown');
+        this.currentStatus.set('unknown');
       }
     }, 5000); //5 seconds, but 5000 milliseconds
 
