@@ -8,7 +8,7 @@ Jasmine Monique Lewis
 February 10, 2025
 
 ### Last Modified
-March 3, 2025
+March 7, 2025
 
 # Table of Contents
 1. [Split Component into Multiple Components](#split-component-into-multiple-components)
@@ -20,6 +20,7 @@ March 3, 2025
 7. [Component Lifecycle](#component-lifecycle)
 8. [Memory Leak](#memory-leak)
 9. [Effect](#effect)
+10. [Conditional - If](#conditional-if)
 
 # Module Six Components and Templates Deep Dive
 I have documented my study notes for Module 6: Components & Templates – Deep Dive. I am enrolled in UDemy's software course by Maximilian Schwarzmüller's Angular: The Complete Guide.
@@ -34,6 +35,7 @@ Below are a list of topics within the module:
 7. Component Lifecycle
 8. Memory Leak
 9. Effect
+10. Conditional - If
 
 # Split a Component into Multiple Components
 ## Separation of Concerns Principle
@@ -645,4 +647,76 @@ private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
       console.log(this.currentStatus());
     });
 }
+```
+
+# Conditional - If
+## Fallback
+An @empty section can optionally be included right after the content of the @for block. When there are no items, the @empty block's content appears:
+
+```
+  <ul>
+    @for (ticket of tickets; track ticket.id) {
+      <li>
+        <app-ticket></app-ticket>
+      </li>
+    } @empty {
+      <!-- Fallback --->
+       <p>No tickets available.</p>
+    }
+  </ul>
+```
+
+## Helper Variables
+The If/Else conditional has helper variables for utility to obtain data quickly about the position of the item in the array.
+
+***Example***
+**tickets.component.html**
+To know if item is ***first***. It returns true or false.
+
+```
+ @for (ticket of tickets; track ticket.id) {
+      <li>
+        <app-ticket></app-ticket> {{ $first }}
+      </li>
+    }
+```
+
+To know if item is ***last***. It returns true or false.
+
+```
+ @for (ticket of tickets; track ticket.id) {
+      <li>
+        <app-ticket></app-ticket> {{ $last }}
+      </li>
+    }
+```
+
+To know if item is ***odd***. It returns true or false.
+
+```
+ @for (ticket of tickets; track ticket.id) {
+      <li>
+        <app-ticket></app-ticket> {{ $odd }}
+      </li>
+    }
+```
+
+To know if item is ***even***. It returns true or false.
+
+```
+ @for (ticket of tickets; track ticket.id) {
+      <li>
+        <app-ticket></app-ticket> {{ $even }}
+      </li>
+    }
+```
+
+To know the item ***count***. It returns a number for the count of all elements.
+
+```
+ @for (ticket of tickets; track ticket.id) {
+      <li>
+        <app-ticket></app-ticket> {{ $count }}
+      </li>
+    }
 ```

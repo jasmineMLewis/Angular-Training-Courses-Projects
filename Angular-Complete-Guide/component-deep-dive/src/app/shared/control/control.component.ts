@@ -58,9 +58,9 @@ export class ControlComponent implements AfterContentInit {
   }
 
   onClick() {
-    console.log('Clicked!');
-    console.log(this.el);
+    //console.log('Clicked!');
+    //console.log(this.el);
     //console.log(this.control);
-    console.log(this.control()); //SIGNAL
+   // console.log(this.control()); //SIGNAL
   }
 }
