@@ -9,7 +9,7 @@ https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/tree/master/A
 2. https://github.com/mschwarzmueller/angular-complete-guide-course-resources/
 
 ## Date Last Updated
-March 20, 2025
+March 21, 2025
 
 ## Technologies
 | Technology | Version  |

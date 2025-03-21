@@ -1,0 +1,18 @@
+<div id="inputs">
+  <p>
+    <label>Width</label>
+    <input type="number" step="1.0" [(ngModel)]="rectSize.width" />
+  </p>
+  <p>
+    <label>Height</label>
+    <input type="number" step="1.0" [(ngModel)]="rectSize.height" />
+  </p>
+</div>
+
+<!-- 
+  Utilizing two-way binding syntax, just as we would with 
+  [(ngModel)] on our custom size property.
+-->
+<app-rect [(size)]="rectSize" />
+
+

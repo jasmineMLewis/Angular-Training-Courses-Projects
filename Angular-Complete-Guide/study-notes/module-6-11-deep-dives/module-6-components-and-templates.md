@@ -8,7 +8,7 @@ Jasmine Monique Lewis
 February 10, 2025
 
 ### Last Modified
-March 20, 2025
+March 21, 2025
 
 # Table of Contents
 1. [Split Component into Multiple Components](#split-component-into-multiple-components)
@@ -19,8 +19,13 @@ March 20, 2025
 6. [Host Element](#host-element)
 7. [Component Lifecycle](#component-lifecycle)
 8. [Memory Leak](#memory-leak)
-9. [Effect](#effect)
-10. [Conditional - If](#conditional-if)
+9. [Forms](#forms)
+10. [View Child](#view-child)
+11. [Content Child](#content-child)
+12. [Effect](#effect)
+13. [Conditional - If](#conditional-if)
+14. [Custom Two-Way Binding Using Input and Output Decorators](#custom-two-way-binding-using-input-and-output-decorators)
+15. [Custom Two-Way Binding Using Signals](#custom-two-way-binding-using-signals)
 
 # Module Six Components and Templates Deep Dive
 I have documented my study notes for Module 6: Components & Templates – Deep Dive. I am enrolled in UDemy's software course by Maximilian Schwarzmüller's Angular: The Complete Guide.
@@ -34,8 +39,13 @@ Below are a list of topics within the module:
 6. Host Element
 7. Component Lifecycle
 8. Memory Leak
-9. Effect
-10. Conditional - If
+9. Forms
+10. View Child
+11. Content Child
+12. Effect
+13. Conditional - If
+14. Custom Two-Way Binding Using Input and Output Decorators
+15. Custom Two-Way Binding Using Signals
 
 # Split a Component into Multiple Components
 ## Separation of Concerns Principle
@@ -276,7 +286,6 @@ selector: 'button[appButton]',
 ```
 
 To target that host we will make the following changes in the style sheet. The ":host" in Angular allow you to directly apply styles to the rendered *Host Element*. The component *Host Element* is NOT considered a part of the component template, but will be affected by the (scoped) component styles via :host.
-
 
 Original CSS
 
@@ -615,7 +624,7 @@ If you place a component variable on a form element and attempt to use the templ
 
 ![Image – Module 6 Form Button Component Instance](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Production/Angular-Complete-Guide/study-notes/module-6-11-deep-dives/assets/module-6/module-6-form-button-component-instance.png)
 
-# ViewChild
+# View Child
 A *ViewChild* decorator can be used to select elements in the template of a component and make them available in the component class. It is a decorator that helps us find child elements in that component's view, do in that component's template.
 A different way to get an element in the DOM that has the template variable on it is *ViewChild* decorator.
 ViewChild and ViewChildren only allow you to collect that is part of the template.
@@ -720,3 +729,183 @@ To know the item ***count***. It returns a number for the count of all elements.
       </li>
     }
 ```
+
+# Custom Two-Way Binding Using Input and Output Decorators
+Implementing custom two-way binding using @Input and @Output decorators in Angular.
+
+## Rec
+***Example***
+
+### Input and Output Interconnected
+The input and output are interconnected, enabling two-way binding. For Angular to recognize the connection, the @Output decorator must use the same variable name as the @Input decorator, with 'Change' appended.
+
+*rect.component.ts*
+
+```
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+@Component({
+  selector: 'app-rect',
+  standalone: true,
+  imports: [],
+  templateUrl: './rect.component.html',
+  styleUrl: './rect.component.css',
+})
+export class RectComponent {
+  // Custom two-way binding
+  //This input and output belong together. It creates two-way
+  //binding. For @Output Decorator, it MUST share the same variable name
+  //as the @Input Decorator connected to the word 'Change' for Angular
+  //to detect
+
+  @Input({required: true}) size!: {width: string; height: string};
+  @Output() sizeChange = new EventEmitter<{width: string; height: string}>();
+
+  onReset() {
+    //This updates the old input value in the component that created it,
+    //eventually affecting the app component.
+
+    this.sizeChange.emit({
+      width: '200',
+      height: '100',
+    });
+  }
+}
+```
+
+### Setting Up Dynamic Styling
+In the component where it is used (app.component.html), you must bind it during the call. 
+The app.component.html file includes the size and width properties in its HTML because it references the app-rect component.
+
+*rect.component.html*
+
+```
+<!--
+ In the component where it is used (app.component.html), you must bind
+ it during the call. The app.component.html file includes the size
+  and width properties in its HTML because it references the
+  app-rect component.
+
+  [style.width]="size.width + 'px'"
+  [style.height]="size.width + 'px'"
+-->
+<div
+  id="rect"
+  [style.width]="size.width + 'px'"
+  [style.height]="size.width + 'px'"
+  (click)="onReset()"
+>
+</div>
+```
+
+## App
+***Example***
+
+### Setting the initial size
+Setting the initial width and height of the rectangle.
+
+*app.component.ts*
+
+```
+import { Component } from '@angular/core';
+import { RectComponent } from './rect/rect.component';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  imports: [RectComponent, FormsModule],
+})
+export class AppComponent {
+  //Setting the initial width and height of the rectangle.
+  rectSize = {
+    width: '500',
+    height: '100',
+  };
+}
+```
+
+### Custom Size property
+Utilizing two-way binding syntax, just as we would with [(ngModel)] on our custom size property.
+
+*app.component.html*
+
+```
+<div id="inputs">
+  <p>
+    <label>Width</label>
+    <input type="number" step="1.0" [(ngModel)]="rectSize.width" />
+  </p>
+  <p>
+    <label>Height</label>
+    <input type="number" step="1.0" [(ngModel)]="rectSize.height" />
+  </p>
+</div>
+
+<!--
+  Utilizing two-way binding syntax, just as we would with
+  [(ngModel)] on our custom size property.
+-->
+<app-rect [(size)]="rectSize" />
+```
+
+# Custom Two-Way Binding Using Signals
+Implementing custom two-way binding using Signals in Angular (Updated for Angular 17.2+).
+
+## Rec
+***Example***
+
+*rect.component.ts*
+
+```
+import { Component, model } from '@angular/core';
+
+@Component({
+  selector: 'app-rect',
+  standalone: true,
+  imports: [],
+  templateUrl: './rect.component.html',
+  styleUrl: './rect.component.css',
+})
+export class RectComponent {
+  //Implementing custom two-way binding using Signals in Angular (Updated for Angular 17.2+)
+
+  //You do not have to separate the @Input() and @Output() Decorators
+  size = model.required<{ width: string; height: string }>();
+
+  onReset() {
+    //Update Signals using the set method
+    this.size.set({
+      width: '200',
+      height: '100',
+    });
+  }
+}
+```
+
+*rect.component.html*
+
+```
+<!--
+ Updated for Angular 17.2+: Creating custom two-way binding with
+ signal functions, executing like a function to allow Angular to
+ set up a subscription
+-->
+<div
+  id="rect"
+  [style.width]="size().width + 'px'"
+  [style.height]="size().width + 'px'"
+  (click)="onReset()"
+>
+</div>
+```
+
+## App
+***Example***
+
+### No File Changes Needed
+You can still use the same format as shown in the example above for @Input and @Output decorators. Angular will detect the change and apply it accordingly.
+
+*app.component.ts*
+*app.component.html*

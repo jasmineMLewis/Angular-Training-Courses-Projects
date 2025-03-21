@@ -1,0 +1,29 @@
+<!--
+ In the component where it is used (app.component.html), you must bind 
+ it during the call. The app.component.html file includes the size 
+ and width properties in its HTML because it references the
+  app-rect component.
+
+  [style.width]="size.width + 'px'"
+  [style.height]="size.width + 'px'"
+-->
+<!-- <div
+  id="rect"
+  [style.width]="size.width + 'px'"
+  [style.height]="size.width + 'px'"
+  (click)="onReset()"
+>
+</div> -->
+
+<!-- 
+ Updated for Angular 17.2+: Creating custom two-way binding with 
+ signal functions, executing like a function to allow Angular to 
+ set up a subscription
+-->
+<div
+  id="rect"
+  [style.width]="size().width + 'px'"
+  [style.height]="size().width + 'px'"
+  (click)="onReset()"
+>
+</div>
