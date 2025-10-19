@@ -9,7 +9,7 @@ https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/tree/master/A
 2. https://github.com/mschwarzmueller/angular-complete-guide-course-resources/
 
 ## Date Last Updated
-March 21, 2025
+October 18, 2025
 
 ## Technologies
 | Technology | Version  |
@@ -35,4 +35,6 @@ March 21, 2025
 
 5. [**Module 5: Debugging Angular Apps**](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Production/Angular-Complete-Guide/study-notes/module-1-5/module-5-debugging-angular-apps.md)
 
-6. [**Module 6: Components & Templates – Deep Dive**](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Production/Angular-Complete-Guide/study-notes/module-6-8/module-6-components-and-templates.md)  
+6. [**Module 6: Components & Templates – Deep Dive**](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Production/Angular-Complete-Guide/study-notes/module-6-11-deep-dives/module-6-components-and-templates.md)
+
+7. [**Module 7: Enhancing Elements with Directives – Deep Dive**](https://github.com/jasmineMLewis/Angular-Training-Courses-Projects/blob/Production/Angular-Complete-Guide/study-notes/module-6-11-deep-dives/module-7-enhancing-elements-with-directives-deep-dive.md)
